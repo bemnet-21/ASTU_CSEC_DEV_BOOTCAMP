@@ -19,7 +19,7 @@ const TaskInput = () => {
 
 
   return (
-    <section className="flex gap-3 p-4 bg-white rounded-xl shadow-md max-w-md mx-auto">
+    <form className="flex gap-3 p-4 bg-white rounded-xl shadow-md max-w-md mx-auto">
       <input
         type="text"
         placeholder="Enter a task..."
@@ -33,7 +33,7 @@ const TaskInput = () => {
       >
         Add Task
       </button>
-    </section>
+    </form>
   )
 }
 

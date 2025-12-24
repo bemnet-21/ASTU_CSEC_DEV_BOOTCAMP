@@ -7,6 +7,7 @@ import React from 'react'
 import Header from './components/Header'
 import TaskInput from './components/TaskInput'
 import { TaskProvider } from './store/taskContext'
+import TaskList from './components/TaskList'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <section>
         <Header />
         <TaskInput />
+        <TaskList />
       </section>
     </TaskProvider>
   )

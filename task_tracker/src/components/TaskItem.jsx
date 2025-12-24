@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TaskItem = ({ task, onToggle, onDelete }) => {
+const TaskItem = ({ task, taskStatus, onDelete }) => {
   return (
     <li className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border">
       <div className="flex items-center gap-3">
@@ -8,7 +8,7 @@ const TaskItem = ({ task, onToggle, onDelete }) => {
         <input
           type="checkbox"
           checked={task.completed}
-          onChange={() => onToggle(task.id)}
+          onChange={() => taskStatus(task.id)}
           className="w-5 h-5 accent-blue-600 cursor-pointer"
         />
 
@@ -18,7 +18,7 @@ const TaskItem = ({ task, onToggle, onDelete }) => {
             task.completed ? 'line-through text-gray-400' : ''
           }`}
         >
-          {task.text}
+          {task.title}
         </span>
       </div>
 

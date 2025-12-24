@@ -18,7 +18,7 @@ export const TaskProvider = ({ children }) => {
 
     const addTask = (title) => {
         const newTask = {
-            id: tasks.length ++,
+            id: crypto.randomUUID(),
             title,
             completed: false
         }
@@ -32,9 +32,8 @@ export const TaskProvider = ({ children }) => {
     }
 
     const taskStatus = (id) => {
-        const newTasks = tasks.map((task) => {
-            task.id === id ? { ...task, completed: !task.completed } : task
-        })
+        const newTasks = tasks.map((task) =>
+            task.id === id ? { ...task, completed: !task.completed } : task)
 
         setTasks(newTasks)
     }
