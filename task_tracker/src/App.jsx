@@ -6,13 +6,16 @@ import './App.css'
 import React from 'react'
 import Header from './components/Header'
 import TaskInput from './components/TaskInput'
+import { TaskProvider } from './store/taskContext'
 
 const App = () => {
   return (
-    <section>
-      <Header />
-      <TaskInput />
-    </section>
+    <TaskProvider>
+      <section>
+        <Header />
+        <TaskInput />
+      </section>
+    </TaskProvider>
   )
 }
 
