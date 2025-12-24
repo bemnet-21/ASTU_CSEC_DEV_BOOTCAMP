@@ -11,16 +11,19 @@ import TaskList from './components/TaskList'
 import Home from './pages/Home'
 import Stats from './pages/Stats'
 import { Route, Routes } from 'react-router-dom'
+import { ThemeProvider } from './store/themeContext'
 
 const App = () => {
   return (
-    <TaskProvider>
-        <Header />
-        <Routes>
-          <Route path="/" element={ <Home /> } />
-          <Route path='/stat' element={ <Stats /> } />
-        </Routes>
-    </TaskProvider>
+    <ThemeProvider>
+      <TaskProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={ <Home /> } />
+            <Route path='/stat' element={ <Stats /> } />
+          </Routes>
+      </TaskProvider>
+    </ThemeProvider>
   )
 }
 

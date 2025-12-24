@@ -1,27 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../store/themeContext';
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
-  });
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-
-    if (darkMode) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [darkMode]);
-
-  const toggleTheme = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <header className="flex items-center justify-between p-6 shadow-md transition-colors duration-300 bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
@@ -31,8 +13,8 @@ const Header = () => {
       </h1>
 
       <nav className='flex flex-row gap-x-8'>
-        <Link to={'/'}>Home</Link>
-        <Link to={'/stat'}>Stats</Link>
+        <Link to={'/'} className="hover:text-blue-500 transition-colors">Home</Link>
+        <Link to={'/stat'} className="hover:text-blue-500 transition-colors">Stats</Link>
       </nav>
 
       <button
@@ -44,7 +26,7 @@ const Header = () => {
           dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-700
         "
       >
-        {darkMode ? (
+        {theme === 'dark' ? (
           <>
             <span>☀️</span>
           </>
