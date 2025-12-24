@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -29,6 +30,11 @@ const Header = () => {
         Task Tracker
       </h1>
 
+      <nav className='flex flex-row gap-x-8'>
+        <Link to={'/'}>Home</Link>
+        <Link to={'/stat'}>Stats</Link>
+      </nav>
+
       <button
         onClick={toggleTheme}
         aria-label="Toggle Dark Mode"
@@ -40,11 +46,11 @@ const Header = () => {
       >
         {darkMode ? (
           <>
-            <span>☀️</span> Light Mode
+            <span>☀️</span>
           </>
         ) : (
           <>
-            <span>🌙</span> Dark Mode
+            <span>🌙</span>
           </>
         )}
       </button>

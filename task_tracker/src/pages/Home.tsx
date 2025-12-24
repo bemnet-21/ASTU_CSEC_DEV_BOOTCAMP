@@ -1,10 +1,13 @@
 import React from 'react'
+import TaskList from '../components/TaskList'
+import TaskInput from '../components/TaskInput'
 
 const Home = () => {
   return (
-    <div>
-      
-    </div>
+    <section>
+      <TaskInput />
+      <TaskList />
+    </section>
   )
 }
 

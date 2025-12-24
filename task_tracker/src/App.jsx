@@ -8,15 +8,18 @@ import Header from './components/Header'
 import TaskInput from './components/TaskInput'
 import { TaskProvider } from './store/taskContext'
 import TaskList from './components/TaskList'
+import Home from './pages/Home'
+import Stats from './pages/Stats'
+import { Route, Routes } from 'react-router-dom'
 
 const App = () => {
   return (
     <TaskProvider>
-      <section>
         <Header />
-        <TaskInput />
-        <TaskList />
-      </section>
+        <Routes>
+          <Route path="/" element={ <Home /> } />
+          <Route path='/stat' element={ <Stats /> } />
+        </Routes>
     </TaskProvider>
   )
 }
