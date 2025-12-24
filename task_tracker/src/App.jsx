@@ -17,11 +17,20 @@ const App = () => {
   return (
     <ThemeProvider>
       <TaskProvider>
-          <Header />
-          <Routes>
-            <Route path="/" element={ <Home /> } />
-            <Route path='/stat' element={ <Stats /> } />
-          </Routes>
+          <div className="min-h-screen transition-colors duration-300 bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+      
+      <Header />
+
+      <main className="container mx-auto p-4">
+        <Routes>
+          {/* Add your Home route here */}
+          <Route path="/" element={<Home />} />
+          
+          <Route path="/stat" element={<Stats />} />
+        </Routes>
+      </main>
+
+    </div>
       </TaskProvider>
     </ThemeProvider>
   )
