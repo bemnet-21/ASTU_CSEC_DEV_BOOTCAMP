@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { TaskContext } from '../store/taskContext'
 
 const TaskInput = () => {
-  const [task, setTask] = useState()
-
+  const [title, setTitle] = useState('')
+  const { addTask, tasks } = useContext(TaskContext)
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(!title) {
+      alert('Please add a task. Field cannot be empty')
+      return
+    }
 
-    console.log(task)
+    addTask(title)
+    console.log(tasks)
+    setTitle('')
+    
   }
 
 
@@ -16,7 +24,7 @@ const TaskInput = () => {
         type="text"
         placeholder="Enter a task..."
         className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        onChange={(e) => setTask(e.target.value)}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <button
         type="submit"
